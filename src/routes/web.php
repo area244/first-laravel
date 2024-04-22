@@ -20,5 +20,12 @@ Route::get('/', function () {
 });
 
 Route::get('/', [TestController::class, 'index']);
-Route::get('/test', [TestController::class, 'index']);
 Route::get('/hello', [HelloController::class, 'index']);
+
+Route::get('/test/{room}/{id}', function ($room, $id) {
+    return 'roomが' . $room . 'でidは' . $id . 'です';
+});
+
+Route::get('/test/{greeting?}', function($greeting = 'Goodmorning') {
+    return $greeting . '=おはようございます';
+});
